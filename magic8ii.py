@@ -21,6 +21,8 @@ def magic8ball(name="", question=""):
                "Outlook not so good", "Very doubtful"]
 
     # Checks to see if the random number generated i valid
+    # Alternative
+    # if not (0 <= random_number < len(answers)):
     if random_number < 0 or random_number > 8:
         print("Error: Unexpected random number")
     else:
