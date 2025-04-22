@@ -7,33 +7,26 @@ import random
 def magic8ball(name="", question=""):
     # Initialized 'answer' variable to avoid potential reference errors
     answer = ""
-    # Generate a random number between 1 and 9
-    random_number = random.randint(1, 9)
+    # Generate a random number between 0 and 8
+    random_number = random.randint(0, 8)
     # print(random_number)
 
     # The various answers available by the Magic 8 Ball
-    # in a if-elif-else control flow
-    if random_number == 1:
-        answer = "Yes - definitely"
-    elif random_number == 2:
-        answer = "It is decidedly so"
-    elif random_number == 3:
-        answer = "Without a doubt"
-    elif random_number == 4:
-        answer = "Reply hazy, try again"
-    elif random_number == 5:
-        answer = "Ask again later"
-    elif random_number == 6:
-        answer = "Better not tell you now"
-    elif random_number == 7:
-        answer = "My sources say no"
-    elif random_number == 8:
-        answer = "Outlook not so good"
-    elif random_number == 9:
-        answer = "Very doubtful"
-    else:
-        answer = "Error: Unexpected random number"
+    # in  a list that stores the possible answers
+    # and can be accessed through the random number
+    # generated as an index (more scalable solution compared to i)
+    answers = ["Yes - definitely", "It is decidedly so", "Without a doubt",
+               "Reply hazy, try again", "Ask again later",
+               "Better not tell you now", "My sources say no",
+               "Outlook not so good", "Very doubtful"]
 
+    # Checks to see if the random number generated i valid
+    if random_number < 0 or random_number > 8:
+        print("Error: Unexpected random number")
+    else:
+        answer = answers[random_number]
+
+    # Conditions for different scenerios
     if question == "":
         print("No question was provided")
     else:
